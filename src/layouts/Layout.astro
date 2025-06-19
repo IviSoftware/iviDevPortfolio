@@ -1,0 +1,63 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Portafolio personal - Desarrollador Web/ios" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+  <body class="bg-cream-50 text-warm-900 font-sans">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import '@fontsource/inter/400.css';
+  @import '@fontsource/inter/500.css';
+  @import '@fontsource/inter/600.css';
+  @import '@fontsource/caveat/400.css';
+  @import '@fontsource/caveat/600.css';
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f6f7f4;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #b4bda4;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a082;
+  }
+</style>

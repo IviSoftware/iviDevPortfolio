@@ -1,0 +1,253 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProjectDetail from '../../components/organisms/ProjectDetail';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', ({ data }) => {
+    return data.status === 'published';
+  });
+
+  return projects.map((project) => ({
+    params: { id: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<Layout title={`${project.data.title} - Proyecto`} description={project.data.shortDescription}>
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="/" class="text-2xl font-handwriting text-peach-600 hover:text-peach-700 transition-colors">
+          ← Volver al Portafolio
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Project Detail Component with integrated Markdown -->
+  <div class="min-h-screen bg-cream-50">
+    <!-- Hero Video Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <!-- Video Container -->
+      <div class="relative w-full max-w-6xl mx-auto px-4">
+        
+
+        <!-- Project Info -->
+        <div class="mt-12 text-center">
+          <h1 class="text-4xl md:text-6xl font-semibold leading-tight text-warm-900 mb-4">
+            {project.data.title}
+          </h1>
+
+          <div class="relative rounded-3xl overflow-hidden">
+            <video
+              class="w-full h-auto max-h-[70vh] object-cover"
+              muted
+              autoplay
+              playsinline
+              preload="auto"
+            >
+              <source src={project.data.videoUrl} type="video/mp4" />
+              Tu navegador no soporta el elemento de video.
+            </video>
+          </div>
+
+
+          <p class="text-warm-600 mb-6 max-w-3xl mx-auto text-lg mt-4">
+            {project.data.description}
+          </p>
+          
+          <!-- Technologies -->
+          <div class="flex flex-wrap justify-center gap-3 mb-8">
+            {project.data.technologies.map((tech) => (
+              <span class="px-4 py-2 bg-white/80 backdrop-blur-sm text-warm-700 rounded-full font-medium border border-cream-200 shadow-sm">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
+            {project.data.liveUrl && (
+              <a 
+              target="_blank"
+                href={project.data.liveUrl}
+                class="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-peach-500 text-white rounded-full font-medium shadow-lg hover:bg-peach-600 transition-all duration-300 text-sm sm:text-base"
+              >
+                Ver Proyecto Live
+              </a>
+            )}
+            <a 
+              href="/#contacto"
+              class="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-warm-700 hover:text-peach-600 hover:bg-peach-50 rounded-full font-medium transition-all duration-300 text-sm sm:text-base"
+            >
+              Discutir Proyecto
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 sm:py-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-12">
+        <!-- Sidebar -->
+        <div class="md:col-span-1 lg:col-span-1 space-y-6 sm:space-y-8 order-2 md:order-1">
+          <!-- Challenges -->
+          <div class="bg-white rounded-2xl shadow-sm border border-cream-200 p-4 sm:p-6">
+            <h3 class="text-lg sm:text-xl font-medium leading-snug text-peach-600 mb-4 sm:mb-6">
+              Desafíos Técnicos
+            </h3>
+            <ul class="space-y-3 sm:space-y-4">
+              {project.data.challenges.map((challenge, index) => (
+                <li class="flex items-start space-x-3">
+                  <span class="flex-shrink-0 w-6 h-6 bg-peach-100 text-peach-600 rounded-full flex items-center justify-center text-xs sm:text-sm font-medium">
+                    {index + 1}
+                  </span>
+                  <p class="text-warm-600 text-sm sm:text-sm leading-relaxed">
+                    {challenge}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Results -->
+          <div class="bg-gradient-to-br from-sage-50 to-peach-50 rounded-2xl shadow-sm border border-cream-200 p-4 sm:p-6">
+            <h3 class="text-lg sm:text-xl font-medium leading-snug text-sage-600 mb-4 sm:mb-6">
+              Resultados Clave
+            </h3>
+            <ul class="space-y-3 sm:space-y-4">
+              {project.data.results.map((result, index) => (
+                <li class="flex items-start space-x-3">
+                  <span class="flex-shrink-0 text-sage-600 text-sm">✨</span>
+                  <p class="text-warm-700 text-sm leading-relaxed">
+                    {result}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="space-y-4">
+            {project.data.liveUrl && (
+              <a 
+              target="_blank"
+                href={project.data.liveUrl}
+                class="block w-full text-center px-6 py-3 bg-peach-500 text-white rounded-full font-medium shadow-lg hover:bg-peach-600 transition-all duration-300"
+              >
+                🚀 Ver Live
+              </a>
+            )}
+            <a 
+              href="/#contacto"
+              class="block w-full text-center px-6 py-3 text-warm-700 hover:text-peach-600 hover:bg-peach-50 rounded-full font-medium transition-all duration-300"
+            >
+              💬 Discutir Proyecto
+            </a>
+          </div>
+        </div>
+
+        <!-- Main Content - Markdown Content -->
+        <div class="md:col-span-2 lg:col-span-3 order-1 md:order-2">
+          <div class="prose prose-lg prose-warm max-w-none">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .prose {
+    @apply text-warm-700;
+  }
+  
+  .prose h1 {
+    @apply text-warm-900 font-semibold text-3xl mb-6 mt-8;
+  }
+  
+  .prose h2 {
+    @apply text-warm-800 font-semibold text-2xl mb-4 mt-12;
+  }
+  
+  .prose h3 {
+    @apply text-warm-800 font-medium text-xl mb-3 mt-8;
+  }
+  
+  .prose h4 {
+    @apply text-warm-700 font-medium text-lg mb-2 mt-6;
+  }
+  
+  .prose p {
+    @apply text-warm-600 leading-relaxed mb-6;
+  }
+  
+  .prose a {
+    @apply text-peach-600 hover:text-peach-700 no-underline font-medium;
+  }
+  
+  .prose strong {
+    @apply text-warm-800 font-semibold;
+  }
+  
+  .prose code {
+    @apply bg-cream-100 text-warm-800 px-2 py-1 rounded text-sm font-mono;
+  }
+  
+  .prose pre {
+    @apply bg-warm-900 text-cream-100 p-4 rounded-lg overflow-x-auto my-6;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent text-cream-100 p-0;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-peach-300 bg-peach-50 pl-6 py-4 italic my-6;
+  }
+  
+  .prose ul {
+    @apply space-y-2 my-6;
+  }
+  
+  .prose ol {
+    @apply space-y-2 my-6;
+  }
+  
+  .prose li {
+    @apply text-warm-600;
+  }
+  
+  .prose li::marker {
+    @apply text-peach-500;
+  }
+  
+  .prose hr {
+    @apply border-cream-300 my-12;
+  }
+  
+  .prose table {
+    @apply w-full border-collapse border border-cream-300 my-6;
+  }
+  
+  .prose th {
+    @apply bg-cream-100 border border-cream-300 px-4 py-2 text-warm-800 font-semibold;
+  }
+  
+  .prose td {
+    @apply border border-cream-300 px-4 py-2 text-warm-600;
+  }
+
+  /* Espaciado especial para &nbsp; */
+  .prose p:has(br) {
+    @apply mb-8;
+  }
+</style>
+</Layout>

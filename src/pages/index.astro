@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/molecules/Navigation';
+import Hero from '../components/organisms/Hero';
+import About from '../components/organisms/About';
+import Projects from '../components/organisms/Projects';
+import Contact from '../components/organisms/Contact';
+import Footer from '../components/organisms/Footer';
+
+// Get all published projects
+const projects = await getCollection('projects', ({ data }) => {
+  return data.status === 'published';
+});
+---
+
+<Layout title="Portafolio - IviDev">
+  <Navigation client:load />
+  <main>
+    <section id="inicio">
+      <Hero client:load />
+    </section>
+    <section id="sobre-mi">
+      <About client:load />
+    </section>
+    <section id="proyectos">
+      <Projects projects={projects} client:load />
+    </section>
+    <section id="contacto">
+      <Contact client:load />
+    </section>
+  </main>
+  <Footer client:load />
+</Layout>
