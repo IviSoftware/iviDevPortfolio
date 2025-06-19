@@ -1,6 +1,34 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "astro"
+  "framework": "astro",
+  "headers": [
+    {
+      "source": "/assets/(.*\\.mov)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "video/quicktime"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*\\.mp4)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "video/mp4"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        }
+      ]
+    }
+  ]
 }
 
