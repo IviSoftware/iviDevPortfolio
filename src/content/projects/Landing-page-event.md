@@ -4,7 +4,7 @@ shortDescription: "Landing page para el evento tecnológico más grande de Méxi
 description: "Una experiencia web inmersiva que captura la esencia del Tech Dev Summit 2025, combinando diseño moderno, animaciones fluidas y una navegación intuitiva para conectar a desarrolladores, ingenieros y entusiastas tech con el evento más importante de tecnología en México."
 technologies: ["Astro", "React", "TypeScript", "Tailwind CSS", "Swiper", "Framer Motion", "Animate.css"]
 primaryTech: "Astro"
-videoUrl: "/assets/landingProject.mov"
+videoUrl: "/assets/landingProject.mp4"
 mockupImage: "/assets/projectLanding.png"
 liveUrl: "https://lading-event.vercel.app/"
 githubUrl: "https://github.com/IviSoftware/ladingEvent"

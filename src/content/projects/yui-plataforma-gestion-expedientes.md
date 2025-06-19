@@ -4,7 +4,7 @@ shortDescription: "Sistema frontend para la gestión de expedientes de personas 
 description: "Una plataforma web moderna que permite la gestión completa de expedientes de personas desaparecidas. Desarrollada originalmente para una Comisión Estatal de Búsqueda de Personas, ahora funciona como una demostración completa con datos simulados y todas las funcionalidades operativas."
 technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router", "React Hook Form", "Node.js", "Express", "React Hot Toast", "Framer Motion"]
 primaryTech: "React"
-videoUrl: "/assets/sistema-yui.mov"
+videoUrl: "/assets/sistema-yui.mp4"
 mockupImage: "/assets/sistema-yui-preview.png"
 liveUrl: "https://yui-platform-ejc1.vercel.app/"
 githubUrl: "https://github.com/IviSoftware/yuiPlatform"
