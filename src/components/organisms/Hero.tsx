@@ -82,7 +82,7 @@ const Hero: React.FC = () => {
             <Typography variant="h1" className="max-w-4xl mx-auto">
               Desarrollador{' '}
               <span className="bg-gradient-to-r from-peach-500 to-sage-500 bg-clip-text text-transparent">
-                Web/ios
+                Frontend/ios
               </span>
             </Typography>
           </motion.div>

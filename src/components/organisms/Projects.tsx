@@ -75,10 +75,6 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           </span>
         </Typography>
         
-        <Typography variant="body" className="max-w-3xl mx-auto text-xl leading-relaxed">
-        “El diseño no es solo cómo se ve o cómo se siente. El diseño es cómo funciona.” <br />
-        —Steve Jobs
-        </Typography>
       </motion.div>
 
       {/* 3D Projects Showcase */}

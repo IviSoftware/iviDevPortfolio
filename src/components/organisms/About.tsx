@@ -13,14 +13,8 @@ const About: React.FC = () => {
       { name: 'TypeScript', level: '2 años' as const, icon: '🔷' },
       { name: 'Astro', level: '2 años' as const, icon: '🚀' },
       { name: 'Tailwind CSS', level: '2 años' as const, icon: '🎨' },
+      { name: 'Wordpress', level: '2 años' as const, icon: '🅦' },
       { name: 'Framer Motion', level: '2 años' as const, icon: '✨' },
-    ],
-    backend: [
-      { name: 'Node.js', level: '2 años' as const, icon: '💚' },
-      { name: 'Express', level: '2 años' as const, icon: '🚂' },
-      { name: 'PostgreSQL', level: '2 años' as const, icon: '🐘' },
-      { name: 'GraphQL', level: '1 año' as const, icon: '📊' },
-      { name: 'Docker', level: '1 año' as const, icon: '🐳' },
     ],
     tools: [
       { name: 'Git', level: '2 años' as const, icon: '📋' },
@@ -33,8 +27,8 @@ const About: React.FC = () => {
     {
       role: "Frontend Developer - Cautiva Producciones",
       company: "Cautiva Producciones Puebla",
-      period: "2023 - Presente",
-      description: "Desarrollo de aplicaciones web modernas con React, Astro.js y TypeScript. Enfoque en performance y experiencia de usuario para keynotes.",
+      period: "2023 - 2025",
+      description: "Desarrolle el frontend de registro para exposiciones y keynotes dirigido a un amplio público, incluyendo encuestas personalizadas. Diseñé el frontend de una herramienta de gestión de enlaces con generación de códigos QR. Implementé un sistema de diseño para landing pages y formularios de registro, y migré módulos críticos de Laravel/Wordpress a React, mejorando la escalabilidad y separación del frontend y backend.",
       icon: <Globe className="w-6 h-6" />
     },
     {
@@ -178,22 +172,6 @@ const About: React.FC = () => {
             </div>
           </Card>
 
-          <Card className="p-6">
-            <Typography variant="h5" className="mb-6 text-center">
-              Backend
-            </Typography>
-            <div className="flex flex-wrap gap-3">
-              {skills.backend.map((skill, index) => (
-                <SkillBadge
-                  key={skill.name}
-                  name={skill.name}
-                  level={skill.level}
-                  icon={skill.icon}
-                  delay={index * 0.1}
-                />
-              ))}
-            </div>
-          </Card>
 
           <Card className="p-6">
             <Typography variant="h5" className="mb-6 text-center">
