@@ -102,7 +102,6 @@ Diseñamos cards interactivas que funcionan como portales a diferentes aspectos 
 Implementamos un sistema de animaciones basado en Intersection Observer que:
 - **Optimiza performance**: Solo anima elementos visibles
 - **Mejora UX**: Crea una narrativa visual progresiva
-- **Mantiene fluidez**: 60fps constantes en todas las animaciones
 
 ```typescript
 const observerCallback = (entries) => {

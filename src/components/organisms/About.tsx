@@ -16,6 +16,11 @@ const About: React.FC = () => {
       { name: 'Wordpress', level: '2 años' as const, icon: '🅦' },
       { name: 'Framer Motion', level: '2 años' as const, icon: '✨' },
     ],
+    backend: [
+      { name: 'Node.js', level: '2 años' as const, icon: '🟩' },
+      { name: 'Express', level: '2 años' as const, icon: '🚏' },
+      { name: 'MySQL', level: '2 años' as const, icon: '🐬' },
+    ],
     tools: [
       { name: 'Git', level: '2 años' as const, icon: '📋' },
       { name: 'Figma', level: '2 años' as const, icon: '🎯' },
@@ -25,10 +30,14 @@ const About: React.FC = () => {
 
   const experience = [
     {
-      role: "Frontend Developer - Cautiva Producciones",
+      role: "Software Developer - Cautiva Producciones",
       company: "Cautiva Producciones Puebla",
       period: "2023 - 2025",
-      description: "Desarrolle el frontend de registro para exposiciones y keynotes dirigido a un amplio público, incluyendo encuestas personalizadas. Diseñé el frontend de una herramienta de gestión de enlaces con generación de códigos QR. Implementé un sistema de diseño para landing pages y formularios de registro, y migré módulos críticos de Laravel/Wordpress a React, mejorando la escalabilidad y separación del frontend y backend.",
+      description: `Desarrollé aplicaciones frontend en React, React Native y TypeScript y backend en Node.js, para plataformas de registro de exposiciones y keynotes, optimizadas para alta concurrencia, escalabilidad y experiencia de usuario sin fricciones.
+Diseñé e implementé una herramienta de gestión de enlaces con API en Node.js y generación automática de códigos QR, integrando principios de UI/UX y sistemas de diseño reutilizables.
+Migré módulos críticos de Laravel a React, modernizando la arquitectura y refactorizando endpoints en Node.js para mejorar rendimiento y seguridad.
+Automatizé despliegues con CI/CD en GitHub Actions, desde el build hasta el release en producción.
+Lideré la migración de sitios WordPress a Astro con islas de React, elevando métricas clave de rendimiento (Core Web Vitals) y refinando la calidad visual.`,
       icon: <Globe className="w-6 h-6" />
     },
     {
@@ -172,6 +181,22 @@ const About: React.FC = () => {
             </div>
           </Card>
 
+          <Card className="p-6">
+            <Typography variant="h5" className="mb-6 text-center">
+              Backend
+            </Typography>
+            <div className="flex flex-wrap gap-3">
+              {skills.backend.map((skill, index) => (
+                <SkillBadge
+                  key={skill.name}
+                  name={skill.name}
+                  level={skill.level}
+                  icon={skill.icon}
+                  delay={index * 0.1}
+                />
+              ))}
+            </div>
+          </Card>
 
           <Card className="p-6">
             <Typography variant="h5" className="mb-6 text-center">
