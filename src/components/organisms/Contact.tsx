@@ -12,7 +12,7 @@ const Contact: React.FC = () => {
       href: 'mailto:ivimendietaacevedo@gmail.com',
       color: 'text-peach-600 hover:text-peach-700',
       bgColor: 'bg-peach-50 hover:bg-peach-100',
-      description: 'ivimendietaacevedo@gmail.com',
+      description: 'Clic aquí',
       subtitle: 'Respondo en menos de 24 horas'
     },
     {
@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
       href: 'https://github.com/IviSoftware',
       color: 'text-warm-600 hover:text-warm-700',
       bgColor: 'bg-warm-50 hover:bg-warm-100',
-      description: 'https://github.com/IviSoftware',
+      description: 'Clic aquí',
       subtitle: 'Explora mis proyectos y código'
     },
     {
@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
       href: 'https://www.linkedin.com/in/ivimendieta/',
       color: 'text-sage-600 hover:text-sage-700',
       bgColor: 'bg-sage-50 hover:bg-sage-100',
-      description: 'https://www.linkedin.com/in/ivimendieta/',
+      description: 'Clic aquí',
       subtitle: 'Conectemos profesionalmente'
     }
   ];
@@ -90,77 +90,6 @@ const Contact: React.FC = () => {
             </Card>
           </motion.a>
         ))}
-      </div>
-
-      {/* Call to Action Cards */}
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Quick Chat Card */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <Card className="p-8 bg-gradient-to-br from-peach-50 via-white to-sage-50 border-2 border-peach-100">
-            <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-peach-100 rounded-xl flex items-center justify-center mr-4">
-                <MessageCircle className="w-6 h-6 text-peach-600" />
-              </div>
-              <Typography variant="h4" className="text-peach-700">
-                Conversación Rápida
-              </Typography>
-            </div>
-            <Typography variant="body" className="mb-6 text-warm-600">
-              ¿Tienes una pregunta específica o quieres discutir una idea? 
-              Envíame un mensaje y conversemos sobre tu proyecto.
-            </Typography>
-            <div className="space-y-3">
-              <Typography variant="caption" className="text-warm-500 flex items-center">
-                ⚡ Respuesta en menos de 24 horas
-              </Typography>
-              <Typography variant="caption" className="text-warm-500 flex items-center">
-                💬 Conversación informal y directa
-              </Typography>
-              <Typography variant="caption" className="text-warm-500 flex items-center">
-                🎯 Enfoque en tus necesidades específicas
-              </Typography>
-            </div>
-          </Card>
-        </motion.div>
-
-        {/* Video Call Card */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <Card className="p-8 bg-gradient-to-br from-sage-50 via-white to-peach-50 border-2 border-sage-100">
-            <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-sage-100 rounded-xl flex items-center justify-center mr-4">
-                <Calendar className="w-6 h-6 text-sage-600" />
-              </div>
-              <Typography variant="h4" className="text-sage-700">
-                Reunión Virtual
-              </Typography>
-            </div>
-            <Typography variant="body" className="mb-6 text-warm-600">
-              Para proyectos más complejos, podemos agendar una videollamada 
-              para discutir los detalles en profundidad.
-            </Typography>
-            <div className="space-y-3">
-              <Typography variant="caption" className="text-warm-500 flex items-center">
-                🎥 Videollamada de 30-60 minutos
-              </Typography>
-              <Typography variant="caption" className="text-warm-500 flex items-center">
-                📋 Análisis detallado de requerimientos
-              </Typography>
-              <Typography variant="caption" className="text-warm-500 flex items-center">
-                💡 Propuesta personalizada y timeline
-              </Typography>
-            </div>
-          </Card>
-        </motion.div>
       </div>
 
       {/* Bottom CTA */}

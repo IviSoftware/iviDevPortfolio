@@ -9,22 +9,33 @@ import SkillBadge from '../molecules/SkillBadge';
 const About: React.FC = () => {
   const skills = {
     frontend: [
-      { name: 'React', level: '2 años' as const, icon: '⚛️' },
-      { name: 'TypeScript', level: '2 años' as const, icon: '🔷' },
-      { name: 'Astro', level: '2 años' as const, icon: '🚀' },
-      { name: 'Tailwind CSS', level: '2 años' as const, icon: '🎨' },
-      { name: 'Wordpress', level: '2 años' as const, icon: '🅦' },
-      { name: 'Framer Motion', level: '2 años' as const, icon: '✨' },
+      { name: 'React', level: '3 años' as const, icon: '⚛️' },
+      { name: 'TypeScript', level: '3 años' as const, icon: '🔷' },
+      { name: 'Astro', level: '3 años' as const, icon: '🚀' },
+      { name: 'Tailwind CSS', level: '3 años' as const, icon: '🎨' },
+      { name: 'Wordpress', level: '3 años' as const, icon: '🅦' },
+      { name: 'Framer Motion', level: '3 años' as const, icon: '✨' },
     ],
-    backend: [
-      { name: 'Node.js', level: '2 años' as const, icon: '🟩' },
-      { name: 'Express', level: '2 años' as const, icon: '🚏' },
-      { name: 'MySQL', level: '2 años' as const, icon: '🐬' },
+    appleDeveloper: [
+      { name: 'Swift', level: '3 años' as const, icon: '🔶' },
+      { name: 'SwiftUI', level: '3 años' as const, icon: '📱' },
+      { name: 'Swift Data', level: '3 años' as const, icon: '💾' },
+      { name: 'Xcode', level: '3 años' as const, icon: '🛠️' },
+      { name: 'Core ML', level: '2 años' as const, icon: '🧠' },
+      { name: 'App Store Connect', level: '3 años' as const, icon: '📦' },
+      { name: 'TestFlight', level: '3 años' as const, icon: '✈️' },
     ],
     tools: [
-      { name: 'Git', level: '2 años' as const, icon: '📋' },
-      { name: 'Figma', level: '2 años' as const, icon: '🎯' },
-      { name: 'VS Code', level: '2 años' as const, icon: '💻' },
+      { name: 'Git', level: '3 años' as const, icon: '📋' },
+      { name: 'Figma', level: '3 años' as const, icon: '🎯' },
+      { name: 'VS Code', level: '3 años' as const, icon: '💻' },
+    ],
+    aiTools: [
+      { name: 'Claude Code', level: '2 años' as const, icon: '🤖' },
+      { name: 'ChatGPT', level: '2 años' as const, icon: '💬' },
+      { name: 'Midjourney', level: '2 años' as const, icon: '🎨' },
+      { name: 'Runway', level: '2 años' as const, icon: '🎬' },
+      { name: 'Stable Diffusion', level: '2 años' as const, icon: '🖼️' },
     ],
   };
 
@@ -32,19 +43,21 @@ const About: React.FC = () => {
     {
       role: "Software Developer - Cautiva Producciones",
       company: "Cautiva Producciones Puebla",
-      period: "2023 - 2025",
-      description: `Desarrollé aplicaciones frontend en React, React Native y TypeScript y backend en Node.js, para plataformas de registro de exposiciones y keynotes, optimizadas para alta concurrencia, escalabilidad y experiencia de usuario sin fricciones.
-Diseñé e implementé una herramienta de gestión de enlaces con API en Node.js y generación automática de códigos QR, integrando principios de UI/UX y sistemas de diseño reutilizables.
-Migré módulos críticos de Laravel a React, modernizando la arquitectura y refactorizando endpoints en Node.js para mejorar rendimiento y seguridad.
-Automatizé despliegues con CI/CD en GitHub Actions, desde el build hasta el release en producción.
-Lideré la migración de sitios WordPress a Astro con islas de React, elevando métricas clave de rendimiento (Core Web Vitals) y refinando la calidad visual.`,
+      period: "2023 - 2026",
+      description: [
+        "Desarrollé aplicaciones frontend en React, SwiftUI y TypeScript para plataformas de registro de exposiciones y keynotes, optimizadas para alta concurrencia, escalabilidad y experiencia de usuario sin fricciones.",
+        "Diseñé e implementé una herramienta de gestión de enlaces con API en Node.js y generación automática de códigos QR, integrando principios de UI/UX y sistemas de diseño reutilizables.",
+        "Migré módulos críticos de Laravel a React, modernizando la arquitectura y refactorizando endpoints para mejorar rendimiento y seguridad.",
+        "Migré y mejoré el desarrollo de apps de React Native a SwiftUI, haciéndolas más útiles e integradas con Apple Watch y Apple TV.",
+        "Lideré la migración de sitios WordPress a Astro con islas de React, elevando métricas clave de rendimiento (Core Web Vitals) y refinando la calidad visual."
+      ],
       icon: <Globe className="w-6 h-6" />
     },
     {
       role: "Becario - Consejo de ciencia y tecnologia de puebla",
       company: "CONCYTEP",
       period: "2021 - 2022",
-      description: "Desarrollé una aplicación web para la gestión de practicantes y becarios en la organización.",
+      description: ["Desarrollé una aplicación web para la gestión de practicantes y becarios en la organización."],
       icon: <Code className="w-6 h-6" />
     }
   ];
@@ -65,8 +78,8 @@ Lideré la migración de sitios WordPress a Astro con islas de React, elevando m
           Mi Trasfondo Técnico
         </Typography>
         <Typography variant="body" className="max-w-3xl mx-auto text-lg">
-          Soy un desarrollador apasionado por crear soluciones web innovadoras. 
-          Mi enfoque se centra en combinar código limpio, arquitecturas escalables 
+          Soy un desarrollador apasionado por crear soluciones web innovadoras.
+          Mi enfoque se centra en combinar código limpio, arquitecturas escalables
           y experiencias de usuario excepcionales.
         </Typography>
       </motion.div>
@@ -96,9 +109,16 @@ Lideré la migración de sitios WordPress a Astro con islas de React, elevando m
                     <Typography variant="caption" className="text-sage-600 mb-2">
                       {exp.company} • {exp.period}
                     </Typography>
-                    <Typography variant="body" className="text-warm-600">
-                      {exp.description}
-                    </Typography>
+                    <ul className="space-y-3 mt-3">
+                      {exp.description.map((item, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <span className="text-peach-600 mr-2 mt-1">•</span>
+                          <Typography variant="body" className="text-warm-600 flex-1">
+                            {item}
+                          </Typography>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </Card>
@@ -119,16 +139,6 @@ Lideré la migración de sitios WordPress a Astro con islas de React, elevando m
           <Card className="p-6 h-fit">
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Smartphone className="w-6 h-6 text-peach-600" />
-                <Typography variant="h6">
-                  Desarrollo Mobile ios
-                </Typography>
-              </div>
-              <Typography variant="body" className="text-warm-600">
-              Estoy ampliando mis habilidades en Swift y SwiftUI para crear experiencias móviles nativas, optimizadas para el ecosistema Apple.
-              </Typography>
-
-              <div className="flex items-center space-x-3 pt-4">
                 <Gamepad2 className="w-6 h-6 text-sage-600" />
                 <Typography variant="h6">
                   Desarrollo de videojuegos
@@ -163,7 +173,7 @@ Lideré la migración de sitios WordPress a Astro con islas de React, elevando m
           Tecnologías y Herramientas
         </Typography>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <Card className="p-6">
             <Typography variant="h5" className="mb-6 text-center">
               Frontend
@@ -183,10 +193,10 @@ Lideré la migración de sitios WordPress a Astro con islas de React, elevando m
 
           <Card className="p-6">
             <Typography variant="h5" className="mb-6 text-center">
-              Backend
+              Apple Developer
             </Typography>
             <div className="flex flex-wrap gap-3">
-              {skills.backend.map((skill, index) => (
+              {skills.appleDeveloper.map((skill, index) => (
                 <SkillBadge
                   key={skill.name}
                   name={skill.name}
@@ -204,6 +214,23 @@ Lideré la migración de sitios WordPress a Astro con islas de React, elevando m
             </Typography>
             <div className="flex flex-wrap gap-3">
               {skills.tools.map((skill, index) => (
+                <SkillBadge
+                  key={skill.name}
+                  name={skill.name}
+                  level={skill.level}
+                  icon={skill.icon}
+                  delay={index * 0.1}
+                />
+              ))}
+            </div>
+          </Card>
+
+          <Card className="p-6">
+            <Typography variant="h5" className="mb-6 text-center">
+              Asistentes IA
+            </Typography>
+            <div className="flex flex-wrap gap-3">
+              {skills.aiTools.map((skill, index) => (
                 <SkillBadge
                   key={skill.name}
                   name={skill.name}
