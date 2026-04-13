@@ -1,10 +1,21 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Typography from '../atoms/Typography';
 import Button from '../atoms/Button';
 
 const Hero: React.FC = () => {
+  const roles = ['Frontend/iOS', 'UI/UX'];
+  const [currentRole, setCurrentRole] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 3000); // Cambia cada 3 segundos
+
+    return () => clearInterval(interval);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -80,9 +91,23 @@ const Hero: React.FC = () => {
 
           <motion.div variants={itemVariants}>
             <Typography variant="h1" className="max-w-4xl mx-auto">
-              Desarrollador{' '}
-              <span className="bg-gradient-to-r from-peach-500 to-sage-500 bg-clip-text text-transparent">
-                Frontend/ios
+              {currentRole === 0 ? 'Desarrollador' : 'Diseñador'}{' '}
+              <span className="inline-block relative overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={currentRole}
+                    initial={{ y: 20, opacity: 0, filter: 'blur(8px)' }}
+                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                    exit={{ y: -20, opacity: 0, filter: 'blur(8px)' }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.25, 0.1, 0.25, 1.0], // Cubic bezier estilo Apple
+                    }}
+                    className="inline-block bg-gradient-to-r from-peach-500 to-sage-500 bg-clip-text text-transparent"
+                  >
+                    {roles[currentRole]}
+                  </motion.span>
+                </AnimatePresence>
               </span>
             </Typography>
           </motion.div>

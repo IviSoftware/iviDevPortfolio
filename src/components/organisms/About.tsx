@@ -25,10 +25,13 @@ const About: React.FC = () => {
       { name: 'App Store Connect', level: '3 años' as const, icon: '📦' },
       { name: 'TestFlight', level: '3 años' as const, icon: '✈️' },
     ],
-    tools: [
-      { name: 'Git', level: '3 años' as const, icon: '📋' },
+    design: [
       { name: 'Figma', level: '3 años' as const, icon: '🎯' },
-      { name: 'VS Code', level: '3 años' as const, icon: '💻' },
+      { name: 'Procreate', level: '3 años' as const, icon: '✏️' },
+      { name: 'Keynote', level: '3 años' as const, icon: '📊' },
+      { name: 'Motion', level: '2 años' as const, icon: '🎬' },
+      { name: 'Final Cut Pro', level: '2 años' as const, icon: '🎥' },
+      { name: 'Prototipos', level: '3 años' as const, icon: '📱' },
     ],
     aiTools: [
       { name: 'Claude Code', level: '2 años' as const, icon: '🤖' },
@@ -41,15 +44,15 @@ const About: React.FC = () => {
 
   const experience = [
     {
-      role: "Software Developer - Cautiva Producciones",
+      role: "Software Developer & UI/UX Designer - Cautiva Producciones",
       company: "Cautiva Producciones Puebla",
       period: "2023 - 2026",
       description: [
-        "Desarrollé aplicaciones frontend en React, SwiftUI y TypeScript para plataformas de registro de exposiciones y keynotes, optimizadas para alta concurrencia, escalabilidad y experiencia de usuario sin fricciones.",
-        "Diseñé e implementé una herramienta de gestión de enlaces con API en Node.js y generación automática de códigos QR, integrando principios de UI/UX y sistemas de diseño reutilizables.",
-        "Migré módulos críticos de Laravel a React, modernizando la arquitectura y refactorizando endpoints para mejorar rendimiento y seguridad.",
-        "Migré y mejoré el desarrollo de apps de React Native a SwiftUI, haciéndolas más útiles e integradas con Apple Watch y Apple TV.",
-        "Lideré la migración de sitios WordPress a Astro con islas de React, elevando métricas clave de rendimiento (Core Web Vitals) y refinando la calidad visual."
+        "Diseñé y desarrollé aplicaciones frontend en React, SwiftUI y TypeScript para plataformas de registro de exposiciones y keynotes, creando interfaces intuitivas en Figma y optimizándolas para alta concurrencia, escalabilidad y experiencia de usuario sin fricciones.",
+        "Diseñé e implementé una herramienta de gestión de enlaces con API en Node.js y generación automática de códigos QR, desde los mockups iniciales hasta los sistemas de diseño reutilizables, integrando principios de UI/UX en cada etapa.",
+        "Migré módulos críticos de Laravel a React, rediseñando completamente la interfaz de usuario y modernizando la arquitectura para mejorar tanto la experiencia visual como el rendimiento técnico.",
+        "Diseñé y desarrollé apps nativas en SwiftUI desde cero, creando prototipos interactivos y sistemas de diseño que se integran perfectamente con Apple Watch y Apple TV.",
+        "Lideré la migración de sitios WordPress a Astro con islas de React, rediseñando la experiencia visual y elevando métricas clave de rendimiento (Core Web Vitals) con un enfoque en diseño centrado en el usuario."
       ],
       icon: <Globe className="w-6 h-6" />
     },
@@ -210,10 +213,10 @@ const About: React.FC = () => {
 
           <Card className="p-6">
             <Typography variant="h5" className="mb-6 text-center">
-              Herramientas
+              Diseño UX/UI
             </Typography>
             <div className="flex flex-wrap gap-3">
-              {skills.tools.map((skill, index) => (
+              {skills.design.map((skill, index) => (
                 <SkillBadge
                   key={skill.name}
                   name={skill.name}
